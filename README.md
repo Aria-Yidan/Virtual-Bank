@@ -5,3 +5,7 @@ Realize the basic functions of E-bank system: account registration, user login, 
 
 
 ![image](https://github.com/githubforliyidan/Virtual-Bank/blob/master/screenshots/1.png)
+
+
+
+![image](https://github.com/githubforliyidan/Virtual-Bank/blob/master/screenshots/2.png)
