@@ -1,0 +1,99 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>存/取款 | 财富管家</title>
+
+<link rel="stylesheet" href="css/normalize.css">
+
+<style type="text/css">
+html { width: 100%; height:100%; overflow:hidden; }
+
+body { 
+	width: 100%;
+	height:100%;
+	font-family: 'Open Sans', sans-serif;
+	background: #2894FF;
+	background: -moz-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%),-moz-linear-gradient(top,  rgba(57,173,219,.25) 0%, rgba(42,60,87,.4) 100%), -moz-linear-gradient(-45deg,  #C07AB8 0%, #2894FF 100%);
+	background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -webkit-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -webkit-linear-gradient(-45deg,  #C07AB8 0%,#2894FF 100%);
+	background: -o-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -o-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -o-linear-gradient(-45deg,  #C07AB8 0%,#2894FF 100%);
+	background: -ms-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -ms-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -ms-linear-gradient(-45deg,  #C07AB8 0%,#2894FF 100%);
+	background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), linear-gradient(to bottom,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), linear-gradient(135deg,  #C07AB8 0%,#2894FF 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3E1D6D', endColorstr='#092756',GradientType=1 );
+}
+
+.head_box {
+  width: 100%;
+  height: 40px;
+  background: #333;
+  overflow: visible; }
+  .head_box #head_wrap {
+    width: 1226px;
+    height: 40px;
+    margin: 0 auto; }
+    .head_box #head_wrap #head_nav {
+      float: left;
+      line-height: 40px;
+      color: #b0b0b0;
+      font-size: 12px;
+      text-align: center;
+      cursor: pointer; }
+      .head_box #head_wrap #head_nav a {
+        text-decoration: none;
+        color: #FFFFFF;
+        margin-left: 5px; }
+      .head_box #head_wrap #head_nav a:hover {
+        text-decoration: none;
+        color: #FFFFFF; }
+      .head_box #head_wrap #head_nav span {
+        margin-left: 5px; }
+    .head_box #head_wrap #head_right {
+      float: right;
+      line-height: 40px;
+      color: #b0b0b0;
+      font-size: 15px;
+      text-align: center;
+      cursor: pointer; }
+      .head_box #head_wrap #head_right #head_landing {
+        float: left;
+        margin-right: 15px; }
+        .head_box #head_wrap #head_right #head_landing a {
+          text-decoration: none;
+          color: #FFFFFF; }
+
+</style>
+
+</head>
+
+<body>
+    <div class="head_box">
+         <div id="head_wrap">
+             <div id="head_nav">
+                 <a class="head_nav_a" href="http://127.0.0.1:8000/">首 页</a>
+                 <span>|</span>
+                 <a class="head_nav_a">通 告</a>
+                 <span>|</span>
+                 <a class="head_nav_a">关 于</a>
+                 <span>|</span>
+                 <a class="head_nav_a">联 系 我 们</a>
+             </div>
+             <div id="head_right">
+                 <div id="head_landing">
+                     {% if userflag %}
+                     <a class="head_nav_a" href="">会员：{{user_name}}</a>
+                     <span>|</span>
+                     <a class="head_nav_a" href="/logout/">退 出</a>
+                     {% else %}
+                     <a class="head_nav_a" href="/login/">登 录</a>
+                     <span>|</span>
+                     <a class="head_nav_a" href="/register/">注 册</a>
+                     {% endif %}
+                 </div>
+             </div>
+         </div>
+     </div>
+    <!---->
+    
+    
+</body>
+</html>

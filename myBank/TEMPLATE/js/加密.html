@@ -1,0 +1,30 @@
+﻿<html>
+<script type="text/javascript" src="Barrett.js"></script>
+<script type="text/javascript" src="BigInt.js"></script>
+<script type="text/javascript" src="RSA.js"></script>
+<p>这是一个测试</p>
+<br>
+<button onclick="myFunction()">加密</button>
+<script>
+
+</script>
+<script>
+var rsa_n ="9599ebf13697953f58b627caf515e1f5f04bc85f6f5420e2827696ac44506d6509ea9bdc54fdae5ba876f694d23eb07e868a2b9f9b83f8153214a936ea70eb3f";
+function myFunction(){
+	
+	setMaxDigits(131);
+
+	var key = new RSAKeyPair("10001",'',rsa_n,512);
+	
+    var text = document.getElementById("gmmtext");
+	
+    if (text.value){
+        text.value = encryptedString(key,text.value,'PKCS1Padding');
+    }      
+}
+</script>
+
+<form id = "form">
+<input type = "text" value = "" id = "gmmtext">
+</form>
+</html>

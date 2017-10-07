@@ -1,0 +1,422 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>存/取款 | 财富管家</title>
+<link rel="stylesheet" href="css/normalize.css">
+
+<link href="css/zxmk.css" rel="stylesheet" type="text/css"/>
+<script src="js/core.js" type="text/javascript"></script>
+<script src="js/jquery-1.5.1.min.js" type="text/javascript"></script>
+<style type="text/css">
+html { width: 100%; height:100%; overflow:hidden; }
+
+body { 
+	width: 100%;
+	height:100%;
+	font-family: 'Open Sans', sans-serif;
+	background: #2894FF;
+	background: -moz-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%),-moz-linear-gradient(top,  rgba(57,173,219,.25) 0%, rgba(42,60,87,.4) 100%), -moz-linear-gradient(-45deg,  #C07AB8 0%, #2894FF 100%);
+	background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -webkit-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -webkit-linear-gradient(-45deg,  #C07AB8 0%,#2894FF 100%);
+	background: -o-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -o-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -o-linear-gradient(-45deg,  #C07AB8 0%,#2894FF 100%);
+	background: -ms-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -ms-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -ms-linear-gradient(-45deg,  #C07AB8 0%,#2894FF 100%);
+	background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), linear-gradient(to bottom,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), linear-gradient(135deg,  #C07AB8 0%,#2894FF 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3E1D6D', endColorstr='#092756',GradientType=1 );
+}
+
+.head_box {
+  width: 100%;
+  height: 40px;
+  background: #333;
+  overflow: visible; }
+  .head_box #head_wrap {
+    width: 1226px;
+    height: 40px;
+    margin: 0 auto; }
+    .head_box #head_wrap #head_nav {
+      float: left;
+      line-height: 40px;
+      color: #b0b0b0;
+      font-size: 12px;
+      text-align: center;
+      cursor: pointer; }
+      .head_box #head_wrap #head_nav a {
+        text-decoration: none;
+        color: #FFFFFF;
+        margin-left: 5px; }
+      .head_box #head_wrap #head_nav a:hover {
+        text-decoration: none;
+        color: #FFFFFF; }
+      .head_box #head_wrap #head_nav span {
+        margin-left: 5px; }
+    .head_box #head_wrap #head_right {
+      float: right;
+      line-height: 40px;
+      color: #b0b0b0;
+      font-size: 15px;
+      text-align: center;
+      cursor: pointer; }
+      .head_box #head_wrap #head_right #head_landing {
+        float: left;
+        margin-right: 15px; }
+        .head_box #head_wrap #head_right #head_landing a {
+          text-decoration: none;
+          color: #FFFFFF; }
+<!---->
+.btn { display: inline-block; *display: inline; *zoom: 1; padding: 4px 10px 4px; margin-bottom: 0; font-size: 13px; line-height: 18px; color: #333333; text-align: center;text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75); vertical-align: middle; background-color: #f5f5f5; background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6); background-image: -ms-linear-gradient(top, #ffffff, #e6e6e6); background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6)); background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6); background-image: -o-linear-gradient(top, #ffffff, #e6e6e6); background-image: linear-gradient(top, #ffffff, #e6e6e6); background-repeat: repeat-x; filter: progid:dximagetransform.microsoft.gradient(startColorstr=#ffffff, endColorstr=#e6e6e6, GradientType=0); border-color: #e6e6e6 #e6e6e6 #e6e6e6; border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25); border: 1px solid #e6e6e6; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); cursor: pointer; *margin-left: .3em; }
+.btn:hover, .btn:active, .btn.active, .btn.disabled, .btn[disabled] { background-color: #e6e6e6; }
+.btn-large { padding: 9px 14px; font-size: 15px; line-height: normal; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; }
+.btn:hover { color: #333333; text-decoration: none; background-color: #e6e6e6; background-position: 0 -15px; -webkit-transition: background-position 0.1s linear; -moz-transition: background-position 0.1s linear; -ms-transition: background-position 0.1s linear; -o-transition: background-position 0.1s linear; transition: background-position 0.1s linear; }
+.btn-primary, .btn-primary:hover { text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); color: #ffffff; }
+.btn-primary.active { color: rgba(255, 255, 255, 0.75); }
+.btn-primary { background-color: #4a77d4; background-image: -moz-linear-gradient(top, #6eb6de, #4a77d4); background-image: -ms-linear-gradient(top, #6eb6de, #4a77d4); background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#6eb6de), to(#4a77d4)); background-image: -webkit-linear-gradient(top, #6eb6de, #4a77d4); background-image: -o-linear-gradient(top, #6eb6de, #4a77d4); background-image: linear-gradient(top, #6eb6de, #4a77d4); background-repeat: repeat-x; filter: progid:dximagetransform.microsoft.gradient(startColorstr=#6eb6de, endColorstr=#4a77d4, GradientType=0);  border: 1px solid #3762bc; text-shadow: 1px 1px 1px rgba(0,0,0,0.4); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.5); }
+.btn-primary:hover, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] { filter: none; background-color: #4a77d4; }
+.btn-block { width: 100%; display:block; }
+
+* { -webkit-box-sizing:border-box; -moz-box-sizing:border-box; -ms-box-sizing:border-box; -o-box-sizing:border-box; box-sizing:border-box; }
+
+.saveorwithdrew { 
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -150px 0 0 -150px;
+	width:300px;
+	height:300px;
+}
+.saveorwithdrew h1 { color: #fff; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:center; }
+.saveorwithdrew h4 { color: #fff; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:left; }
+input { 
+	width: 100%; 
+	margin-bottom: 10px; 
+	background: rgba(0,0,0,0.3);
+	border: none;
+	outline: none;
+	padding: 10px;
+	font-size: 13px;
+	color: #fff;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+	border: 1px solid rgba(0,0,0,0.3);
+	border-radius: 4px;
+	box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+	-webkit-transition: box-shadow .5s ease;
+	-moz-transition: box-shadow .5s ease;
+	-o-transition: box-shadow .5s ease;
+	-ms-transition: box-shadow .5s ease;
+	transition: box-shadow .5s ease;
+}
+input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2); }
+</style>
+
+</head>
+
+<body>
+    <div class="head_box">
+         <div id="head_wrap">
+             <div id="head_nav">
+                 <a class="head_nav_a" href="http://127.0.0.1:8000/">首 页</a>
+                 <span>|</span>
+                 <a class="head_nav_a">通 告</a>
+                 <span>|</span>
+                 <a class="head_nav_a">关 于</a>
+                 <span>|</span>
+                 <a class="head_nav_a">联 系 我 们</a>
+             </div>
+             <div id="head_right">
+                 <div id="head_landing">
+                     {% if userflag %}
+                     <a class="head_nav_a" href="">会员：{{user_name}}</a>
+                     <span>|</span>
+                     <a class="head_nav_a" href="/logout/">退 出</a>
+                     {% else %}
+                     <a class="head_nav_a" href="/login/">登 录</a>
+                     <span>|</span>
+                     <a class="head_nav_a" href="/register/">注 册</a>
+                     {% endif %}
+                 </div>
+             </div>
+         </div>
+     </div>
+    <!---->
+    <div class="saveorwithdrew">
+        <h1>存 款</h1>
+        <form method="post" action="">
+            <h4>金 额</h4>
+            <br>
+            <input id="user_inMoney" type="text" name="saveMoney" placeholder="小数点后2位" required="required" onkeyup="this.value=/^\d+\.?\d{0,2}$/.test(this.value) ? this.value : ''" />
+            <!-- <input type="number" name="trMoney" placeholder="小数点后2位,单次不超过2万" max="20000" min="0" required="required" onkeyup="this.value=/^\d+\.?\d{0,2}$/.test(this.value) ? this.value : ''" /> -->
+            <input type="hidden", name="savepost" />
+            <br><br>
+            <h4>支付密码</h4>
+            <br>
+            <input id="user_inpayword" type="password" name="inpayword" placeholder="支付密码" required="required" />
+            <input id="user_response" type="hidden" name="response" value="{{user_Challenge}}"/>
+            <br>
+            <br>
+            <button type="submit" class="btn btn-primary btn-block btn-large" onclick="EncryptAndIDprove()">确 定</button>
+
+            {% if error %}{% for err in error %}<h1>{{err}}</h1>{% endfor %}{% endif %}
+            <script type="text/javascript">
+                function EncryptAndIDprove()
+                {
+                    user_inMoney = document.getElementById("user_inMoney");
+                    if (user_inMoney.value == ""){}
+                    else{
+                        user_inpayword = document.getElementById("user_inpayword");
+                        if (user_inpayword.value == ""){}
+                        else{
+                            user_response = document.getElementById("user_response");   // need to encrypt ?
+                            var hash = hex_sha1(user_inpayword.value);
+                            var challenge = user_response.value;
+                            user_response.value = hex_sha1(hash + challenge); //can be better
+                            user_inpayword.value = "*********";
+                        }
+                    }
+                }
+                /*
+                 *
+                 * A JavaScript implementation of the Secure Hash Algorithm, SHA-1, as defined
+                 * in FIPS PUB 180-1
+                 *
+                 * By lizq
+                 *
+                 * 2006-11-11
+                 *
+                 */
+                /*
+                 *
+                 * Configurable variables.
+                 *
+                 */
+                var hexcase = 0; /* hex output format. 0 - lowercase; 1 - uppercase */
+                var chrsz = 8; /* bits per input character. 8 - ASCII; 16 - Unicode */
+                /*
+                 *
+                 * The main function to calculate message digest
+                 *
+                 */
+                function hex_sha1(s) {
+            
+                    return binb2hex(core_sha1(AlignSHA1(s)));
+            
+                }
+            
+                /*
+                 *
+                 * Perform a simple self-test to see if the VM is working
+                 *
+                 */
+                function sha1_vm_test() {
+            
+                    return hex_sha1("abc") == "a9993e364706816aba3e25717850c26c9cd0d89d";
+            
+                }
+            
+                /*
+                 *
+                 * Calculate the SHA-1 of an array of big-endian words, and a bit length
+                 *
+                 */
+                function core_sha1(blockArray) {
+            
+                    var x = blockArray; // append padding
+                    var w = Array(80);
+            
+                    var a = 1732584193;
+            
+                    var b = -271733879;
+            
+                    var c = -1732584194;
+            
+                    var d = 271733878;
+            
+                    var e = -1009589776;
+            
+                    for (var i = 0; i < x.length; i += 16) // 每次处理512位 16*32
+                    {
+            
+                        var olda = a;
+            
+                        var oldb = b;
+            
+                        var oldc = c;
+            
+                        var oldd = d;
+            
+                        var olde = e;
+            
+                        for (var j = 0; j < 80; j++) // 对每个512位进行80步操作
+                        {
+            
+                            if (j < 16)
+                                w[j] = x[i + j];
+            
+                            else
+                                w[j] = rol(w[j - 3] ^ w[j - 8] ^ w[j - 14] ^ w[j - 16], 1);
+            
+                            var t = safe_add(safe_add(rol(a, 5), sha1_ft(j, b, c, d)), safe_add(safe_add(e, w[j]), sha1_kt(j)));
+            
+                            e = d;
+            
+                            d = c;
+            
+                            c = rol(b, 30);
+            
+                            b = a;
+            
+                            a = t;
+            
+                        }
+            
+                        a = safe_add(a, olda);
+            
+                        b = safe_add(b, oldb);
+            
+                        c = safe_add(c, oldc);
+            
+                        d = safe_add(d, oldd);
+            
+                        e = safe_add(e, olde);
+            
+                    }
+            
+                    return new Array(a, b, c, d, e);
+            
+                }
+            
+                /*
+                 *
+                 * Perform the appropriate triplet combination function for the current
+                 * iteration
+                 *
+                 * 返回对应F函数的值
+                 *
+                 */
+                function sha1_ft(t, b, c, d) {
+            
+                    if (t < 20)
+                        return (b & c) | ((~b) & d);
+            
+                    if (t < 40)
+                        return b ^ c ^ d;
+            
+                    if (t < 60)
+                        return (b & c) | (b & d) | (c & d);
+            
+                    return b ^ c ^ d; // t<80
+                }
+            
+                /*
+                 *
+                 * Determine the appropriate additive constant for the current iteration
+                 *
+                 * 返回对应的Kt值
+                 *
+                 */
+                function sha1_kt(t) {
+            
+                    return (t < 20) ? 1518500249 : (t < 40) ? 1859775393 : (t < 60) ? -1894007588 : -899497514;
+            
+                }
+            
+                /*
+                 *
+                 * Add integers, wrapping at 2^32. This uses 16-bit operations internally
+                 *
+                 * to work around bugs in some JS interpreters.
+                 *
+                 * 将32位数拆成高16位和低16位分别进行相加，从而实现 MOD 2^32 的加法
+                 *
+                 */
+                function safe_add(x, y) {
+            
+                    var lsw = (x & 0xFFFF) + (y & 0xFFFF);
+            
+                    var msw = (x >> 16) + (y >> 16) + (lsw >> 16);
+            
+                    return (msw << 16) | (lsw & 0xFFFF);
+            
+                }
+            
+                /*
+                 *
+                 * Bitwise rotate a 32-bit number to the left.
+                 *
+                 * 32位二进制数循环左移
+                 *
+                 */
+                function rol(num, cnt) {
+            
+                    return (num << cnt) | (num >>> (32 - cnt));
+            
+                }
+            
+                /*
+                 *
+                 * The standard SHA1 needs the input string to fit into a block
+                 *
+                 * This function align the input string to meet the requirement
+                 *
+                 */
+                function AlignSHA1(str) {
+            
+                    var nblk = ((str.length + 8) >> 6) + 1,
+                        blks = new Array(nblk * 16);
+            
+                    for (var i = 0; i < nblk * 16; i++)
+                        blks[i] = 0;
+            
+                    for (i = 0; i < str.length; i++)
+            
+                        blks[i >> 2] |= str.charCodeAt(i) << (24 - (i & 3) * 8);
+            
+                    blks[i >> 2] |= 0x80 << (24 - (i & 3) * 8);
+            
+                    blks[nblk * 16 - 1] = str.length * 8;
+            
+                    return blks;
+            
+                }
+            
+                /*
+                 *
+                 * Convert an array of big-endian words to a hex string.
+                 *
+                 */
+                function binb2hex(binarray) {
+            
+                    var hex_tab = hexcase ? "0123456789ABCDEF" : "0123456789abcdef";
+            
+                    var str = "";
+            
+                    for (var i = 0; i < binarray.length * 4; i++) {
+            
+                        str += hex_tab.charAt((binarray[i >> 2] >> ((3 - i % 4) * 8 + 4)) & 0xF) +
+            
+                            hex_tab.charAt((binarray[i >> 2] >> ((3 - i % 4) * 8)) & 0xF);
+            
+                    }
+            
+                    return str;
+            
+                }
+            
+                /*
+                 *
+                 * calculate MessageDigest accord to source message that inputted
+                 *
+                 */
+                // function calcDigest() {
+            
+                //     var digestM = hex_sha1(document.SHAForm.SourceMessage.value);
+            
+                //     document.SHAForm.MessageDigest.value = digestM;
+            
+                // }</script>
+        
+    </div>
+    
+    
+     
+
+</body>
+</html>

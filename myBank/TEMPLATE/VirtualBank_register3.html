@@ -1,0 +1,241 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>注册 | 财富管家</title>
+
+<link rel="stylesheet" href="css/normalize.css">
+
+<script type="text/javascript" src="js/md5.js"></script>
+
+<script type="text/javascript" src="js/BigInt.js"></script>  
+<script type="text/javascript" src="js/Barrett.js"></script> 
+<script type="text/javascript" src="js/RSA.js"></script>
+
+<script type="text/javascript" src="js/aes.js"></script>
+<script type="text/javascript" src="js/pad-zeropadding.js"></script>
+
+<!-- <script type="text/javascript" src="js/RSA_Stripped.js"></script>   -->
+<!-- <script type="text/javascript" src="js/rsa-2.js"></script>-->
+
+<style type="text/css">
+html { width: 100%; height:100%; overflow:hidden; }
+
+body { 
+	width: 100%;
+	height:100%;
+	font-family: 'Open Sans', sans-serif;
+	background: #2894FF;
+	background: -moz-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%),-moz-linear-gradient(top,  rgba(57,173,219,.25) 0%, rgba(42,60,87,.4) 100%), -moz-linear-gradient(-45deg,  #C07AB8 0%, #2894FF 100%);
+	background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -webkit-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -webkit-linear-gradient(-45deg,  #C07AB8 0%,#2894FF 100%);
+	background: -o-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -o-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -o-linear-gradient(-45deg,  #C07AB8 0%,#2894FF 100%);
+	background: -ms-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -ms-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -ms-linear-gradient(-45deg,  #C07AB8 0%,#2894FF 100%);
+	background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), linear-gradient(to bottom,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), linear-gradient(135deg,  #C07AB8 0%,#2894FF 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3E1D6D', endColorstr='#092756',GradientType=1 );
+}
+
+.head_box {
+  width: 100%;
+  height: 40px;
+  background: #333;
+  overflow: visible; }
+  .head_box #head_wrap {
+    width: 1226px;
+    height: 40px;
+    margin: 0 auto; }
+    .head_box #head_wrap #head_nav {
+      float: left;
+      line-height: 40px;
+      color: #b0b0b0;
+      font-size: 12px;
+      text-align: center;
+      cursor: pointer; }
+      .head_box #head_wrap #head_nav a {
+        text-decoration: none;
+        color: #FFFFFF;
+        margin-left: 5px; }
+      .head_box #head_wrap #head_nav a:hover {
+        text-decoration: none;
+        color: #FFFFFF; }
+      .head_box #head_wrap #head_nav span {
+        margin-left: 5px; }
+    .head_box #head_wrap #head_right {
+      float: right;
+      line-height: 40px;
+      color: #b0b0b0;
+      font-size: 15px;
+      text-align: center;
+      cursor: pointer; }
+      .head_box #head_wrap #head_right #head_landing {
+        float: left;
+        margin-right: 15px; }
+        .head_box #head_wrap #head_right #head_landing a {
+          text-decoration: none;
+          color: #FFFFFF; }
+<!----->
+
+.btn { display: inline-block; *display: inline; *zoom: 1; padding: 4px 10px 4px; margin-bottom: 0; font-size: 13px; line-height: 18px; color: #333333; text-align: center;text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75); vertical-align: middle; background-color: #f5f5f5; background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6); background-image: -ms-linear-gradient(top, #ffffff, #e6e6e6); background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6)); background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6); background-image: -o-linear-gradient(top, #ffffff, #e6e6e6); background-image: linear-gradient(top, #ffffff, #e6e6e6); background-repeat: repeat-x; filter: progid:dximagetransform.microsoft.gradient(startColorstr=#ffffff, endColorstr=#e6e6e6, GradientType=0); border-color: #e6e6e6 #e6e6e6 #e6e6e6; border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25); border: 1px solid #e6e6e6; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); cursor: pointer; *margin-left: .3em; }
+.btn:hover, .btn:active, .btn.active, .btn.disabled, .btn[disabled] { background-color: #e6e6e6; }
+.btn-large { padding: 9px 14px; font-size: 15px; line-height: normal; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; }
+.btn:hover { color: #333333; text-decoration: none; background-color: #e6e6e6; background-position: 0 -15px; -webkit-transition: background-position 0.1s linear; -moz-transition: background-position 0.1s linear; -ms-transition: background-position 0.1s linear; -o-transition: background-position 0.1s linear; transition: background-position 0.1s linear; }
+.btn-primary, .btn-primary:hover { text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); color: #ffffff; }
+.btn-primary.active { color: rgba(255, 255, 255, 0.75); }
+.btn-primary { background-color: #4a77d4; background-image: -moz-linear-gradient(top, #6eb6de, #4a77d4); background-image: -ms-linear-gradient(top, #6eb6de, #4a77d4); background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#6eb6de), to(#4a77d4)); background-image: -webkit-linear-gradient(top, #6eb6de, #4a77d4); background-image: -o-linear-gradient(top, #6eb6de, #4a77d4); background-image: linear-gradient(top, #6eb6de, #4a77d4); background-repeat: repeat-x; filter: progid:dximagetransform.microsoft.gradient(startColorstr=#6eb6de, endColorstr=#4a77d4, GradientType=0);  border: 1px solid #3762bc; text-shadow: 1px 1px 1px rgba(0,0,0,0.4); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.5); }
+.btn-primary:hover, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] { filter: none; background-color: #4a77d4; }
+.btn-block { width: 100%; display:block; }
+
+* { -webkit-box-sizing:border-box; -moz-box-sizing:border-box; -ms-box-sizing:border-box; -o-box-sizing:border-box; box-sizing:border-box; }
+
+.register { 
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	margin: -150px 0 0 -150px;
+	width:300px;
+	height:300px;
+}
+.register h1 { color: #fff; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:center; }
+.register p { color: #fff; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; }
+
+input { 
+	width: 100%; 
+	margin-bottom: 10px; 
+	background: rgba(0,0,0,0.3);
+	border: none;
+	outline: none;
+	padding: 10px;
+	font-size: 13px;
+	color: #fff;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+	border: 1px solid rgba(0,0,0,0.3);
+	border-radius: 4px;
+	box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+	-webkit-transition: box-shadow .5s ease;
+	-moz-transition: box-shadow .5s ease;
+	-o-transition: box-shadow .5s ease;
+	-ms-transition: box-shadow .5s ease;
+	transition: box-shadow .5s ease;
+}
+input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2); }
+</style>
+
+</head>
+
+<body>
+    <div class="head_box">
+         <div id="head_wrap">
+             <div id="head_nav">
+                 <a class="head_nav_a" href="http://127.0.0.1:8000/">首 页</a>
+                 <span>|</span>
+                 <a class="head_nav_a">通 告</a>
+                 <span>|</span>
+                 <a class="head_nav_a">关 于</a>
+                 <span>|</span>
+                 <a class="head_nav_a">联 系 我 们</a>
+             </div>
+             <div id="head_right">
+                 <div id="head_landing">
+                     <a class="head_nav_a" href="/login/">登 录</a>
+                     <span>|</span>
+                     <a class="head_nav_a" href="/register/">注 册</a>
+                 </div>
+             </div>
+         </div>
+     </div>
+    <!----->
+    <div class="register">
+        <h1>欢迎注册_内测版</h1>
+        <form method="post" action="">
+            <p>注册邮箱： <nobr id="e_error" style="color: #FF0000;"></nobr></p>
+            <p>
+            <label for="id_captcha">验证（必填）：</label> {{captcha}}
+            </p>
+            <input id="user_email" type="text" name="email" placeholder="注册邮箱" required="required" />
+            <p>用户名：</p>
+            <input id="user_name" type="text" name="username" placeholder="用户名" required="required" />
+            <p>密码：</p>
+            <input id="user_password" type="password" name="password_in" placeholder="密码" required="required" />
+            <p>确认密码： <nobr id="p_error" style="color: #FF0000;"></nobr></p>
+            <input id="user_rpassword" type="password" name="rpassword_in" placeholder="确认密码" required="required" />
+            <p></p>
+            <button type="submit" class="btn btn-primary btn-block btn-large" onclick="return Encrypt()">注 册</button>
+            <input id="user_key" type="hidden" name="key_encrypted">
+            <input id="user_iv" type="hidden" name="iv_encrypted">
+            <input id="user_password_encrypted" type="hidden" name="password_encrypted">
+            <input id="user_email_encrypted" type="hidden" name="email_encrypted">
+            <input id="user_checksum" type="hidden" name="checksum">
+        </form>
+        {% if error %}{% for err in error %}<h1>{{err}}</h1>{% endfor %}{% endif %}
+        <script>
+            rnd.today=new Date();
+            rnd.seed=rnd.today.getTime();
+            function rnd() {
+            　　　　rnd.seed = (rnd.seed*9301+49297) % 233280;
+            　　　　return rnd.seed/(233280.0);
+            }
+            function rand(number) {
+            　　　　return Math.ceil(rnd()*number);
+            }
+            
+            function Encrypt()
+            {   
+                user_email = document.getElementById("user_email");
+                if(user_email.value == ""){}
+                else{
+                    //--Email error check--//
+                    if(user_email.value.indexOf("@") == -1){document.getElementById("e_error").innerHTML="*请确保包含@字符*";return false;}
+                    for(var i = 0; i < user_email.value.length; i++)
+                    {if(user_email.value.charCodeAt(i) <= 126 && user_email.value.charCodeAt(i) >= 21){}else{document.getElementById("e_error").innerHTML="*支持字母/数字/特殊字符*";return false;}}
+                    
+                    user_password = document.getElementById("user_password");
+                    if(user_password.value == ""){}
+                    else{
+                        user_rpassword = document.getElementById("user_rpassword");
+                        if(user_rpassword.value == ""){}
+                        else{
+                            if(user_password.value == user_rpassword.value)
+                            {
+                                user_key = document.getElementById("user_key");
+                                user_iv = document.getElementById("user_iv");
+                                user_password_encrypted = document.getElementById("user_password_encrypted");
+                                user_email_encrypted = document.getElementById("user_email_encrypted");
+                                user_checksum = document.getElementById("user_checksum");
+                                
+                                var i;
+                                var random_key = "";
+                                for (i = 0;i < 16;i++){ random_key += String.fromCharCode(rand(78)+48); }
+                                var key  = CryptoJS.enc.Latin1.parse(random_key);
+                                var random_iv = "";
+                                for(i = 0; i < 16; i++){ random_iv += String.fromCharCode(rand(78)+48); }
+                                var iv   = CryptoJS.enc.Latin1.parse(random_iv);
+                                
+                                //--AES--//
+                                var data = user_password.value;
+                                var encrypted = CryptoJS.AES.encrypt(data,key,{iv:iv,mode:CryptoJS.mode.CBC,padding:CryptoJS.pad.ZeroPadding});
+                                user_password_encrypted.value = encrypted.toString();
+                                
+                                data = user_email.value;
+                                encrypted = CryptoJS.AES.encrypt(data,key,{iv:iv,mode:CryptoJS.mode.CBC,padding:CryptoJS.pad.ZeroPadding});
+                                user_email_encrypted.value = encrypted.toString();
+                                
+                                //--RSA--//
+                                setMaxDigits(129);
+                                var rsa_key = new RSAKeyPair("10001","","92ec287fefb11b13c7bebab2ce2572b59961afbf2e5c8ddf185aa7184e0df5273987909aabb005d9dea46b01c1d9de0bad336363ad607679411cd8fd24ceb609");
+                                user_key.value = encryptedString(rsa_key, random_key);
+                                user_iv.value = encryptedString(rsa_key, random_iv);
+                                
+                                //--Compute checksum--//
+                                user_checksum.value = hex_md5(user_key.value + user_iv.value + user_password_encrypted.value + user_email_encrypted.value)
+                                user_password.value = "*********";
+                                user_rpassword.value = "*********";
+                                user_email.value = " ";
+                            }
+                            else{document.getElementById("p_error").innerHTML="*两次密码不一致*";return false;}
+                        }
+                    }
+                }
+            }
+        </script>
+    </div>
+</body>
+</html>
